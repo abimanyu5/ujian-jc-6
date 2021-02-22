@@ -19,10 +19,10 @@ import styles from './style';
 import storage from '@react-native-firebase/storage';
 import firestore from '@react-native-firebase/firestore';
 
-const lstLaporan = [
-  {label: 'Maling', value: 'maling'},
-  {label: 'Kebakaran', value: 'kebakaran'},
-  {label: 'Pengrusakan', value: 'pengrusakan'},
+const lstgender = [
+  {label: 'pria', value: 'pria'},
+  {label: 'wanita', value: 'wanita'},
+  
 ];
 
 const FirebaseStorage = storage();
@@ -34,8 +34,8 @@ export default class InputData extends Component {
     this.state = {
       nama: '',
       email: '',
-      laporan: '',
-      keterangan: '',
+      gender: '',
+      status: '',
       downloadUrl: '',
       uri: '',
       fileImage: null,
@@ -108,12 +108,12 @@ export default class InputData extends Component {
         storageRef.getDownloadURL().then((download) => {
           firestore()
             .collection('laporan')
-            .doc(this.state.email)
+            .doc(this.state.nama)
             .set({
               nama: this.state.nama,
-              email: this.state.email,
-              laporan: this.state.laporan,
-              keterangan: this.state.keterangan,
+              umur: this.state.umur,
+              gender: this.state.gender,
+              status: this.state.status,
               urlDownload: download,
             })
             .then((res) => {
@@ -143,41 +143,41 @@ export default class InputData extends Component {
         <FieldsContainer>
           <Fieldset label="Laporan Kejadian">
             <FormGroup style={styles.FormGroup}>
-              <Label>Nama Pelapor</Label>
+              <Label>Nama</Label>
               <Input
                 placeholder="Nama"
                 onChangeText={(nama) => this.setState({nama: nama})}
               />
             </FormGroup>
             <FormGroup style={styles.FormGroup}>
-              <Label>Email</Label>
+              <Label>umur</Label>
               <Input
-                placeholder="email...@mail.com"
-                onChangeText={(email) => this.setState({email: email})}
+                placeholder="umur"
+                onChangeText={(umur) => this.setState({umur: umur})}
               />
             </FormGroup>
 
             <FormGroup style={styles.FormGroup}>
-              <Label>Jenis Laporan</Label>
+              <Label>gender</Label>
               <Select
-                name="lstLaporan"
-                label="Jenis Laporan"
-                options={lstLaporan}
-                placeholder="Laporan"
-                onValueChange={(laporan) => this.setState({laporan: laporan})}
+                name="lstgender"
+                label="gender"
+                options={lstgender}
+                placeholder="gender"
+                onValueChange={(gender) => this.setState({gender:gender})}
               />
             </FormGroup>
 
-            <Label>Keterangan</Label>
+            <Label>status</Label>
             <Input
-              name="keterangan"
-              label="Keterangan"
+              name="status"
+              label="status"
               placeholder=""
               multiline={true}
               numberOfLines={5}
               inlineLabel={false}
-              onChangeText={(keterangan) =>
-                this.setState({keterangan: keterangan})
+              onChangeText={(status) =>
+                this.setState({status: status})
               }
             />
           </Fieldset>
