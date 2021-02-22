@@ -34,13 +34,17 @@ export default class ShowData extends Component {
         });
       });
   }
+
+    const TambahData = () => {
+        navigation.navigate('input');
+    };
   const renderItem = ({ item }) => {
         return (
             <TouchableOpacity onPress={() => {
-                detailData(item);
+        
               }}
               style={styles.row}>
-                <Image source={{ uri: item.urlGambar }} style={styles.pic} />
+                <Image source={{ uri: urlDownload }} style={styles.picture} />
                 <View>
                     <View style={styles.nameContainer}>
                         <Text style={styles.nameTxt} numberOfLines={1} ellipsizeMode="tail">{item.nama}</Text>
@@ -53,9 +57,9 @@ export default class ShowData extends Component {
             </TouchableOpacity>
         );
     };
-
-    return (
-        <View style={styles.container}>
+    render(){
+        return (
+           <View style={styles.container}>
             <View style={{ backgroundColor: 'white', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', paddingHorizontal: 10, paddingVertical: 10 }}>
                 <Text style={styles.label}>Total User : {data.length}</Text>
                 <TouchableOpacity onPress={TambahData} style={styles.tombol}>
@@ -71,7 +75,7 @@ export default class ShowData extends Component {
                 renderItem={renderItem} />
         </View>
     );
-
+    }
 }
 
 const styles = StyleSheet.create({
@@ -84,7 +88,7 @@ const styles = StyleSheet.create({
         padding: 10,
         marginVertical: 5,
     },
-    pic: {
+    picture: {
         borderRadius: 30,
         width: 60,
         height: 60,
