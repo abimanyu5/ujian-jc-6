@@ -25,7 +25,7 @@ export default class ShowData extends Component {
       .collection('laporan')
       .get()
       .then((querySnapshot) => {
-        console.log('Total data laporan: ', querySnapshot.size);
+        console.log('Total data: ', querySnapshot.size);
 
         querySnapshot.forEach((documentSnapshot) => {
           console.log('Data: ', documentSnapshot.id, documentSnapshot.data());

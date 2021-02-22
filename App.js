@@ -7,6 +7,7 @@
  */
 import InputData from './src/component/input/InputData';
 import ShowData from './src/component/show/ShowData';
+import Update from './src/component/update/Update';
 import React from 'react';
 import {
   SafeAreaView,
@@ -38,6 +39,7 @@ const App: () => React$Node = () => {
           
           <Stack.Screen name="show" component={ShowData} />
           <Stack.Screen name="input" component={InputData} />
+          <Stack.Screen name="update" component={Update} />
            </>
             
          </Stack.Navigator>
