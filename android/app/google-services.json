@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "594466283106",
+    "firebase_url": "https://reactna-5faa9-default-rtdb.firebaseio.com",
+    "project_id": "reactna-5faa9",
+    "storage_bucket": "reactna-5faa9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594466283106:android:77b57a420b33c6fc5efb3b",
+        "android_client_info": {
+          "package_name": "com.tugas6jc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594466283106-2b6i0fhq9qh8ki71fgeqpatu9ntlmshn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9_YHJKJ7yv23FBczOr-FE5qPr4zGsWMM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "594466283106-2b6i0fhq9qh8ki71fgeqpatu9ntlmshn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594466283106:android:d736d59adccc81455efb3b",
+        "android_client_info": {
+          "package_name": "com.tugasreactnative"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594466283106-2b6i0fhq9qh8ki71fgeqpatu9ntlmshn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9_YHJKJ7yv23FBczOr-FE5qPr4zGsWMM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "594466283106-2b6i0fhq9qh8ki71fgeqpatu9ntlmshn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
