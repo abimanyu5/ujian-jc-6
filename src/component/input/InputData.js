@@ -19,12 +19,6 @@ import styles from './style';
 import storage from '@react-native-firebase/storage';
 import firestore from '@react-native-firebase/firestore';
 
-const lstgender = [
-  {label: 'pria', value: 'pria'},
-  {label: 'wanita', value: 'wanita'},
-  
-];
-
 const FirebaseStorage = storage();
 
 export default class InputData extends Component {
@@ -32,13 +26,10 @@ export default class InputData extends Component {
     super(props);
 
     this.state = {
-      nama: '',
-      email: '',
-      gender: '',
-      status: '',
       downloadUrl: '',
       uri: '',
       fileImage: null,
+      gps:'',
     };
   }
 
@@ -107,19 +98,17 @@ export default class InputData extends Component {
 
         storageRef.getDownloadURL().then((download) => {
           firestore()
-            .collection('laporan')
-            .doc(this.state.nama)
+            .collection('users')
+            .doc(this.state.email)
             .set({
               nama: this.state.nama,
               umur: this.state.umur,
-              gender: this.state.gender,
-              status: this.state.status,
               urlDownload: download,
             })
             .then((res) => {
               console.log(JSON.stringify(res));
-              console.log('Laporan added!');
-              this.props.navigation.navigate("show")
+              console.log('check in add');
+              this.props.navigation.navigate("home")
             })
             .catch((error) => {
               Alert.alert('Maaf Gagal Simpan', JSON.stringify(error));
@@ -141,45 +130,8 @@ export default class InputData extends Component {
     return (
       <Form>
         <FieldsContainer>
-          <Fieldset label="Laporan Kejadian">
-            <FormGroup style={styles.FormGroup}>
-              <Label>Nama</Label>
-              <Input
-                placeholder="Nama"
-                onChangeText={(nama) => this.setState({nama: nama})}
-              />
-            </FormGroup>
-            <FormGroup style={styles.FormGroup}>
-              <Label>umur</Label>
-              <Input
-                placeholder="umur"
-                onChangeText={(umur) => this.setState({umur: umur})}
-              />
-            </FormGroup>
-
-            <FormGroup style={styles.FormGroup}>
-              <Label>gender</Label>
-              <Select
-                name="lstgender"
-                label="gender"
-                options={lstgender}
-                placeholder="gender"
-                onValueChange={(gender) => this.setState({gender:gender})}
-              />
-            </FormGroup>
-
-            <Label>status</Label>
-            <Input
-              name="status"
-              label="status"
-              placeholder=""
-              multiline={true}
-              numberOfLines={5}
-              inlineLabel={false}
-              onChangeText={(status) =>
-                this.setState({status: status})
-              }
-            />
+          <Fieldset label="Check In">
+            
           </Fieldset>
           <View style={styles.image}>
             <Image

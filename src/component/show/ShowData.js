@@ -35,10 +35,9 @@ export default class ShowData extends Component {
       });
   }
 
-    const TambahData = () => {
-        navigation.navigate('input');
-    };
-  const renderItem = ({ item }) => {
+
+    
+    renderItem = ({ item }) => {
         return (
             <TouchableOpacity onPress={() => {
         
@@ -51,7 +50,7 @@ export default class ShowData extends Component {
                         <Text style={styles.mblTxt}>{item.status}</Text>
                     </View>
                     <View style={styles.msgContainer}>
-                        <Text style={styles.msgTxt}>{item.gender} / {item.usia} Tahun</Text>
+                        <Text style={styles.msgTxt}>{item.gender} / {item.umur} Tahun</Text>
                     </View>
                 </View>
             </TouchableOpacity>
@@ -59,22 +58,15 @@ export default class ShowData extends Component {
     };
     render(){
         return (
-           <View style={styles.container}>
-            <View style={{ backgroundColor: 'white', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', paddingHorizontal: 10, paddingVertical: 10 }}>
-                <Text style={styles.label}>Total User : {data.length}</Text>
-                <TouchableOpacity onPress={TambahData} style={styles.tombol}>
-                    <Text style={styles.textTombol}>Tambah User</Text>
-                </TouchableOpacity>
-            </View>
-            <Divider/>
+             <View style={{ flex: 1 }} >
             <FlatList
-                data={data}
+                data={this.state.data}
                 keyExtractor={(item) => {
                     return item.id;
                 }}
-                renderItem={renderItem} />
-        </View>
-    );
+                renderItem={this.renderItem} />
+             </View>
+        );
     }
 }
 
